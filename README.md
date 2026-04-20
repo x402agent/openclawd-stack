@@ -1,6 +1,15 @@
 # openclawd-stack
 
-Solana × xAI Grok agentic trading engine — sandboxed through [NVIDIA OpenShell](https://github.com/NVIDIA/OpenShell), funded through Privy, narrated through Telegram, and powered by `$CLAWD` (`8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump`).
+<p align="center">
+  <strong>$CLAWD — Contract Address</strong><br/>
+  <code>8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump</code><br/>
+  <a href="https://pump.fun/coin/8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump">pump.fun</a> ·
+  <a href="https://solscan.io/token/8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump">Solscan</a> ·
+  <a href="https://dexscreener.com/solana/8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump">DexScreener</a> ·
+  <a href="https://birdeye.so/token/8cHzQHUS2s2h8TzCmfqPKYiM4dSt4roa3n7MyRLApump?chain=solana">Birdeye</a>
+</p>
+
+Solana × xAI Grok agentic trading engine — sandboxed through [NVIDIA OpenShell](https://github.com/NVIDIA/OpenShell), funded through Privy, narrated through Telegram, and powered by `$CLAWD`.
 
 This repo ships two sibling projects:
 
