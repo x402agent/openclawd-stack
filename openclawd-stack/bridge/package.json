@@ -1,0 +1,22 @@
+{
+  "name": "@solana-clawd/cloud-clawd-bridge",
+  "version": "1.0.0",
+  "description": "WebSocket bridge for Cloud Clawd browser terminal",
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "tsx watch server.ts",
+    "start": "tsx server.ts",
+    "deploy": "node --loader ts-node/esm server.ts"
+  },
+  "dependencies": {
+    "e2b": "^2.5.0",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.5.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.3.0"
+  }
+}

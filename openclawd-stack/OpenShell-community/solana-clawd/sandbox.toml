@@ -1,0 +1,87 @@
+# OpenShell Community Sandbox Manifest
+# https://github.com/NVIDIA/OpenShell-Community
+
+[sandbox]
+name = "solana-clawd"
+description = "Solana AI Agent Runtime with xAI Grok, 31 MCP Tools, OODA Trading Engine"
+version = "1.4.0"
+
+[sandbox.metadata]
+category = "ai-agent"
+tags = ["solana", "trading", "ai", "mcp", "grok", "defi"]
+license = "MIT"
+homepage = "https://github.com/x402agent/solana-clawd"
+repository = "https://github.com/x402agent/solana-clawd"
+
+# Build configuration
+[build]
+dockerfile = "Dockerfile"
+context = "."
+platform = "linux/amd64"
+
+# Default tools available in this sandbox
+[tools]
+languages = ["node:20"]
+agents = ["claude", "opencode", "codex"]
+cli = ["npm", "node", "git", "curl"]
+
+# Provider configuration for credential discovery
+[providers.solana-clawd]
+credential_env_vars = [
+    "HELIUS_API_KEY",
+    "HELIUS_RPC_URL",
+    "XAI_API_KEY",
+    "OPENAI_API_KEY",
+    "OPENROUTER_API_KEY",
+    "SOLANA_PRIVATE_KEY",
+    "PRIVY_APP_ID"
+]
+config_paths = [
+    "~/.clawd/config.json",
+    "~/.clawd/.env",
+    "~/.nemoclaw/config.json",
+    "~/.nemoclaw/.env",
+    "~/.config/clawd/config.json"
+]
+
+# Network policy - allowed outbound hosts
+[policy.network]
+allow = [
+    "*.helius-rpc.com:443",
+    "*.helius.xyz:443",
+    "api.coingecko.com:443",
+    "pump.fun:443",
+    "api.x.ai:443",
+    "openrouter.ai:443",
+    "api.alternative.me:443",
+    "api.duckduckgo.com:443",
+    "api.twitter.com:443",
+    "x.com:443"
+]
+
+# Filesystem policy
+[policy.filesystem]
+allow = [
+    "~/.clawd/**",
+    "~/.nemoclaw/**",
+    "~/.config/clawd/**",
+    "/tmp/**"
+]
+readonly = [
+    "~/.npm/**",
+    "/usr/local/lib/node_modules/**"
+]
+
+# Process policy
+[policy.process]
+allow = [
+    "node",
+    "npm",
+    "git",
+    "curl",
+    "python3",
+    "solana-clawd",
+    "nemoclaw",
+    "clawd",
+    "agentwallet"
+]

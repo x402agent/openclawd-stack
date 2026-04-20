@@ -1,0 +1,9 @@
+# E2B template config. Referenced by `e2b template build`.
+# See https://e2b.dev/docs/sandbox-template for the schema.
+
+template_name = "clawd"
+dockerfile = "Dockerfile"
+start_cmd = "/usr/local/bin/clawd-entrypoint"
+ready_cmd = "sh -c 'until ss -ltn 2>/dev/null | grep -q \":${CLAWD_GATEWAY_PORT:-18789} \"; do sleep 1; done'"
+cpu_count = 2
+memory_mb = 4096

@@ -1,0 +1,43 @@
+# ClawVault Benchmark Pod
+# Runs LoCoMo evaluation against ClawVault and competitors
+# Usage: claw up -f benchmarks/claw-pod.yml
+
+version: "3.8"
+
+services:
+  clawvault-bench:
+    build:
+      context: ..
+      dockerfile: benchmarks/Clawfile
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - BENCH_MODEL=${BENCH_MODEL:-gpt-4o-mini}
+      - BENCH_DATASET=${BENCH_DATASET:-locomo}
+    volumes:
+      - bench-results:/bench/results
+      - ../:/clawvault-src:ro
+    networks:
+      - bench-net
+
+  # Mem0 comparison (uses Python SDK)
+  mem0-bench:
+    build:
+      context: ..
+      dockerfile: benchmarks/Clawfile
+    command: ["/opt/bench/bin/python", "/bench/competitors/mem0_bench.py"]
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MEM0_API_KEY=${MEM0_API_KEY:-}
+      - BENCH_MODEL=${BENCH_MODEL:-gpt-4o-mini}
+    volumes:
+      - bench-results:/bench/results
+    networks:
+      - bench-net
+
+volumes:
+  bench-results:
+
+networks:
+  bench-net:

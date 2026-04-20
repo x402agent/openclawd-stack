@@ -1,0 +1,19 @@
+{
+  "name": "@solana-clawd/e2b-deploy",
+  "version": "1.0.0",
+  "description": "E2B deployment scripts for Solana Clawd Runtime",
+  "type": "module",
+  "main": "deploy.ts",
+  "scripts": {
+    "deploy": "tsx deploy.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "e2b": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.3.0"
+  }
+}

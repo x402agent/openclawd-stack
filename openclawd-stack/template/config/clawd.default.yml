@@ -1,0 +1,60 @@
+# /etc/clawd/config.yml — default config for sandboxed clawd runtime.
+# The orchestrator can override any of this via `clawd config set ...` after boot
+# or by mounting a per-user overlay at /var/lib/clawd/config.overlay.yml.
+
+agents:
+  defaults:
+    model:
+      primary: anthropic/claude-opus-4-7
+      fallback: openai/gpt-5.2
+  registry:
+    mawdbot:
+      description: "Autonomous Solana trading agent — OODA loop + Clawd vault memory"
+      tools: [solana-tracker, jupiter, birdeye, helius, honcho]
+    defi-scanner:
+      description: "Pump.fun + Raydium pool scanner with SNIPE/BUY/SCALP/AVOID classifier"
+      tools: [solana-tracker, pumpfun, helius]
+    clawd-trader:
+      description: "Full $CLAWD ecosystem agent — perps via Hyperliquid/Aster"
+      tools: [hyperliquid, aster, jupiter, solana-tracker, honcho]
+    vibe-coder:
+      description: "Conversational coding assistant with persistent project memory"
+      tools: [filesystem, git, npm, honcho]
+
+gateway:
+  controlUi:
+    # Production default is secure. Orchestrator flips these for dev sandboxes.
+    allowInsecureAuth: false
+    dangerouslyDisableDeviceAuth: false
+  bind: lan
+  auth: privy
+
+plugins:
+  entries:
+    telegram:
+      enabled: false         # flipped on by orchestrator when user adds TG channel
+    honcho:
+      enabled: true
+      tier_write_interval_ms: 30000
+
+data:
+  solanaTracker:
+    baseUrl: https://data.solanatracker.io
+  helius:
+    rpc: https://mainnet.helius-rpc.com
+  jupiter:
+    baseUrl: https://quote-api.jup.ag/v6
+
+memory:
+  # The Clawd vault — tiered epistemological memory persisted to /vault
+  # and snapshotted to Honcho v3.
+  clawdvault:
+    backend: honcho-v3
+    root: /vault
+    tiers:
+      KNOWN: { ttl_days: 365 }
+      LEARNED: { ttl_days: 90 }
+      INFERRED: { ttl_days: 7 }
+  workspace:
+    root: /workspace
+    snapshot_on_pause: true

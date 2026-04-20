@@ -1,0 +1,26 @@
+node_modules/
+dist/
+.compat-reports/
+*.log
+.DS_Store
+
+# Internal/agent files — never commit
+AGENT-*.md
+COMPARISON-*.md
+COMPAT-*.md
+OBSERVER-SPEC.md
+
+# SEO/marketing — belongs on website, not CLI repo
+blog/
+robots.txt
+sitemap.xml
+generate-seo-assets.*
+
+# Local instance data
+cognition/
+eval/results/
+eval/adapters/__pycache__/
+eval/LongMemEval/
+research/
+trading/
+.clawvault/embeddings.bin.json

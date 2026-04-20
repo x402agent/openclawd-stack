@@ -1,0 +1,92 @@
+# Dependencies
+**/node_modules
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+*.dist
+*.tsbuildinfo
+target/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!*.env.example
+!.xcode.env
+!pins.env
+
+# Secrets
+*.pem
+*.key
+!**/locales/**
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.p12
+*.pfx
+credentials.json
+wallet.json
+keypair.json
+.clawroute-wallet.json
+secrets.json
+.secrets
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Rust
+Cargo.lock
+target/
+
+# Misc
+.turbo
+.next/
+out/
+.cache/

@@ -1,0 +1,9 @@
+{
+  "name": "clawvault-fixture",
+  "openclaw": {
+    "hooks": [
+      "./hooks/clawvault"
+    ],
+    "plugin": "./openclaw.plugin.json"
+  }
+}
