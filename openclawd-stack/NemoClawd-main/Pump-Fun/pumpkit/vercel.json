@@ -1,6 +1,0 @@
-{
-  "buildCommand": "npx turbo build --filter=@pumpkit/web",
-  "outputDirectory": "packages/web/dist",
-  "installCommand": "npm install",
-  "framework": null
-}
